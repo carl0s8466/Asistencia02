@@ -28,14 +28,13 @@ public class Material {
     @Basic(optional = false)
     @Column(name = "hora_reg", nullable = false)
     @Temporal(TemporalType.TIME)
-    private LocalTime horaReg;
-    private String latitud;
+    private LocalTime horaReg;private String latitud;
     private String longitud;
     @Basic(optional = false)
     @Column(name = "mod_fh", nullable = false)
     @Temporal(TemporalType.DATE)
     private LocalDate modFh;
-    @Column(name = "offlinex", length = 2, nullable = false)
+    @Column(name="offlinex",length = 2,nullable = false)
     private String offlinex;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "eventoinscripcion_id", referencedColumnName =

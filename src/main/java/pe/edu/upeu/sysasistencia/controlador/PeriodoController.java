@@ -9,28 +9,33 @@ import pe.edu.upeu.sysasistencia.servicio.PeriodoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/periodo" )
+@RequestMapping("/periodo")
 public class PeriodoController {
 
     @Autowired
     private PeriodoService periodoService;
+
     @GetMapping("/list")
-    public ResponseEntity<List<Periodo>> findAll(){
-        List<Periodo> p=periodoService.obtenerPeriodos();
+    public ResponseEntity<List<Periodo>> findAll() {
+        List<Periodo> p=periodoService.findAll();
         return ResponseEntity.ok(p);
     }
+
     @GetMapping("/list/{id}")
-    public ResponseEntity<Periodo> findAllByPeriodo(@PathVariable Long id){
-        Periodo p=periodoService.obtenerPeriodo(id);
+    public ResponseEntity<Periodo> findByPeriodo(@PathVariable Long id) {
+        Periodo p=periodoService.findById(id);
         return ResponseEntity.ok(p);
     }
+
     @PostMapping("/guardar")
     public void guardar(@RequestBody Periodo periodo) {
-        periodoService.guardarPeriodo(periodo);
+        periodoService.save(periodo);
     }
-    @DeleteMapping("/eliminar/{id}")
-    public void eliminar(@PathVariable Long id){
-        periodoService.eliminarPeriodo(id);
 
+    @DeleteMapping("/eliminar/{id}")
+    public void eliminar(@PathVariable Long id) {
+        periodoService.delete(id);
     }
+
+
 }

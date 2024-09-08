@@ -25,17 +25,13 @@ public class Usuario {
     @Column(nullable = false)
     private String offlinex;
     @JoinColumn(name = "persona_id", referencedColumnName = "id")
-
     @ManyToOne(optional = false)
     private Persona personaId;
-
- /*@ManyToMany(fetch = FetchType.EAGER)
- @JoinTable(name = "upeu_usuario_rol", joinColumns = @JoinColumn(name
-= "usuario_id", referencedColumnName = "id"),
- inverseJoinColumns = @JoinColumn(name = "rol_id",
-referencedColumnName = "id")
- )
- private List<Rol> roles;*/
-
+    /*@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "upeu_usuario_rol", joinColumns = @JoinColumn(name
+    = "usuario_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "rol_id",
+    referencedColumnName = "id")
+    )
+    private List<Rol> roles;*/
 }
-

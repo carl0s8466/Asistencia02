@@ -6,26 +6,28 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.Length;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
+@Entity
 @Table(name = "upeu_evento")
-
 public class Evento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+    @Column(length = 60)
     private String nombreEvento;
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private LocalDate fecha;
+
     private LocalTime horai;
     private LocalTime minToler;
     private String latitud;
@@ -40,10 +42,9 @@ public class Evento {
     private String intsal;
     private String offlinex;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne (fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "periodo_id", referencedColumnName = "id", nullable = false,
             foreignKey = @ForeignKey(name = "FK_EVENTO_PERIODO"))
     private Periodo periodoId;
-
 
 }

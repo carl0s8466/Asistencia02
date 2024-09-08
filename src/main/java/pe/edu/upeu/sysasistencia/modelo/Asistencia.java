@@ -37,8 +37,7 @@ public class Asistencia {
     @Column(name = "entsal", nullable = false, length = 2)
     private String entsal;
     @Column(name = "subactasis_id", nullable = true)
-    private Long subactasisId;
-    @Column(name="offlinex",length = 2,nullable = false)
+    private Long subactasisId;@Column(name="offlinex",length = 2,nullable = false)
     private String offlinex;
     @JoinColumn(name = "evento_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

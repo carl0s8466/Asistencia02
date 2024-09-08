@@ -1,6 +1,9 @@
 package pe.edu.upeu.sysasistencia.modelo;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +16,7 @@ import lombok.NoArgsConstructor;
 @IdClass(UsuarioRolPK.class)
 public class UsuarioRol {
     @Id
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
     @Id
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
 }

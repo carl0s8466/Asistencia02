@@ -10,8 +10,7 @@ import lombok.EqualsAndHashCode;
 public class UsuarioRolPK {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-    @ManyToOne
+    private Usuario usuario;@ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
 }

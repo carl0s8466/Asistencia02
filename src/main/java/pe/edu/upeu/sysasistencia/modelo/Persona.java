@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysasistencia.modelo;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,6 +31,5 @@ public class Persona {
     @Column(name = "estado", nullable = false, length = 8)
     private String estado;
     @JoinColumn(name = "escuela_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Escuela escuelaId;
+    @ManyToOne(optional = false)private Escuela escuelaId;
 }
